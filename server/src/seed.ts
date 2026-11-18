@@ -75,8 +75,17 @@ export async function seed() {
   console.log(`Seeded ${WARDS.length} wards, ${beds} beds, ${users.length} users. Password for all: bedsense123`);
 }
 
-if (process.argv[1]?.endsWith('seed.ts')) {
-  await connectDb(config.mongoUri);
-  await seed();
-  await mongoose.disconnect();
+// if (process.argv[1]?.endsWith('seed.ts')) {
+//   await connectDb(config.mongoUri);
+//   await seed();
+//   await mongoose.disconnect();
+// }
+
+
+if (require.main === module) {
+  (async () => {
+    await connectDb(config.mongoUri);
+    await seed();
+    await mongoose.disconnect();
+  })();
 }
