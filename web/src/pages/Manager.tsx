@@ -51,12 +51,12 @@ export default function Manager() {
           {showTruth && (
             <span className="text-red-700">{mismatches} wrong on board</span>
           )}
-          <button
+          {/* <button
             className="rounded border px-2 py-1"
             onClick={() => replan.mutate()}
           >
             Re-plan now
-          </button>
+          </button> */}
           <span className="text-slate-500">{user?.name}</span>
           <button className="underline" onClick={logout}>
             Sign out
